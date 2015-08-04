@@ -36,7 +36,6 @@ FDPDemo.getJSONData = function(urlJSON, container, templateID, itemsLen){
 };
 
 FDPDemo.readMore = function (el, showWords){
-    if(typeof el === 'string'){
         //check if DOM element exist
         if($(el).length !== 0 && typeof showWords === 'number'){
             if (showWords >=0){
@@ -71,7 +70,4 @@ FDPDemo.readMore = function (el, showWords){
         } else {
             return false;
         }
-    } else {
-        return false;
-    }
 };
