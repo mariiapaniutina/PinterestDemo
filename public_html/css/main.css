@@ -1,18 +1,19 @@
 /*==============================================================================
    FDT styles
 ==============================================================================*/
-.container {-moz-column-count: 5; /* FF */
+
+.container {-moz-column-count: calc;
     -moz-column-width: 250px;
     -moz-column-gap: 5px;
-    -webkit-column-count: 5; /* Chrome && Safari */
+    -webkit-column-count: 5;
     -webkit-column-width: 250px;
     -webkit-column-gap: 5px;
     column-count: 5;
     column-width: 250px;
     column-gap: 5px;
-    width: 90%;
-    max-width: 1350px;
-    margin: 10px auto;}
+    margin: 10px auto;
+    width: 1590px;}
+#target {}
 .item {background: #fefefe;
     position: relative;
     border: 0;
@@ -29,6 +30,19 @@
     break-inside: avoid;
     display: inline-block;
     z-index: 1;}
+
+#target {-moz-column-count: calc;
+    -moz-column-width: 250px;
+    -moz-column-gap: 5px;
+    -webkit-column-count: 5;
+    -webkit-column-width: 250px;
+    -webkit-column-gap: 5px;
+    column-count: 5;
+    column-width: 250px;
+    column-gap: 5px;
+    margin: 10px auto;
+    width: 1590px;}
+
 .item .item_shadow {width: 100%;
     height: 300%;
     position: absolute;
