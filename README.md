@@ -1,5 +1,5 @@
 # PinterestDemo
-This is the demo for fashion discovery platformwith design based on http://pinterest.com
+This is the demo for fashion discovery platformwith design based on http://pinterest.com<br />
 Amount of items for every download is configurable.
 
 Was used: 
