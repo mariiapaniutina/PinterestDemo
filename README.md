@@ -7,7 +7,7 @@ Was used:
 * mustache.js
 * bootstrap
 
-JSON contains random data, generated at https://www.mockaroo.com/
+JSON contains random data, generated at https://www.mockaroo.com/<br />
 Look at JSON structure below
 ```ruby
 {
