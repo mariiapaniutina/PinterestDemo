@@ -8,8 +8,8 @@ Was used:
 * bootstrap
 
 JSON contains random data, generated at https://www.mockaroo.com/
+Look at JSON structure below
 ```ruby
-JSON structure =>
 {
    "title": "<TITLE>",
    "blurb": "<BLURB>",
