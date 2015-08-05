@@ -23,47 +23,60 @@ FDPDemo.getJSONData = function(urlJSON, container, templateID, itemsLen){
                 tmpData += FDPDemo.renderDataFromJSON(templateID, data[getRandomID(dataLength)]);
             };
             $(tmpData).each(function(){
-               FDPDemo.readMore($(this).find('.desc'), showWords); 
-               $(container).append($(this));
+                FDPDemo.readMore($(this).find('.desc'), showWords, '#readmore_template', 'Read More', 'Read Less'); 
+                $(container).append($(this));
             });
         })
         .fail(function() {
-          return console.error('$.getJSON was failed');
+            console.log('$.getJSON was failed');
+            return false;
         });
     } else {
-        return console.error('One or more from arguments in getJSONData() has wrong data type');
+        console.log('One or more from arguments in getJSONData() has wrong data type');
+        return false;
     }
 };
 
-FDPDemo.readMore = function (el, showWords){
+FDPDemo.readMore = function (el, showWords, templateID, moreText, lessText){
+    
+        var toogleReadMore = function(linkID){
+            $(el).find(linkID).click(function(){
+                if($(this).hasClass("less")) {
+                    $(this).removeClass("less");
+                    $(this).html(moreText);
+                } else {
+                    $(this).addClass("less");
+                    $(this).html(lessText);
+                }
+                $(this).parent().prev().toggle();
+                $(this).prev().toggle();
+                return false;
+            }); 
+        };
+    
         //check if DOM element exist
         if($(el).length !== 0 && typeof showWords === 'number'){
             if (showWords >=0){
+                var template = $(templateID).html();
                 var dataText = $(el).text();
                 var wordsLen = dataText.split(' ').length;
-                var moreText = "Show more";
-                var lessText = "Show less";
 
                 if (wordsLen > showWords){
                     var firstPart = dataText.split(' ').slice(0, showWords).join(' ');
-                    var secondpart = dataText.split(' ').slice(showWords).join(' ');
+                    var secondPart = dataText.split(' ').slice(showWords).join(' ');
+                    
+                    var OBJ = {
+                        'firstPart': firstPart,
+                        'secondPart': secondPart,
+                        'moreText': moreText,
+                        'lessText': lessText
+                    };
+                    Mustache.parse(template);
 
-                    var dataInContent = firstPart + '<span class="moreContent"><span>' + secondpart + '</span>' + '<a href="#" class="moreLink">' + moreText +'</a></span>';
+                    var dataInContent = Mustache.render(template, OBJ);
                     $(el).html(dataInContent);
                 }
-
-                $(el).find(".moreLink").click(function(){
-                    if($(this).hasClass("less")) {
-                        $(this).removeClass("less");
-                        $(this).html(moreText);
-                    } else {
-                        $(this).addClass("less");
-                        $(this).html(lessText);
-                    }
-                    $(this).parent().prev().toggle();
-                    $(this).prev().toggle();
-                    return false;
-                }); 
+                toogleReadMore('.moreLink');
             } else {
                 return false;
             }

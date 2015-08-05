@@ -4,19 +4,19 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Fashion Discovery Platform</title>
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="css/main.css">
         
-        <script src="https://raw.githubusercontent.com/janl/mustache.js/master/mustache.js"></script>
+        <script src="https://cdn.rawgit.com/janl/mustache.js/master/mustache.js"></script>
     </head>
     <body>
-        <div class="container"></div>
+        <div class="wrapper"><!--START [wrapper]-->
+            <div class="container"></div>
+        </div><!--END [wrapper]-->
         
-        <script id="template" type="x-tmpl-mustache">
+        <script id="item_template" type="x-tmpl-mustache">
             <div class="item">
                 <div class="img">
                     <img src="img/{{thumbnail_url}}_{{random_img}}.jpg"/>
@@ -27,8 +27,15 @@
             </div>
         </script>
         
+        <script id="readmore_template" type="x-tmpl-mustache">
+            {{firstPart}}
+            <span class="moreContent">
+                <span>{{secondPart}}</span>
+                <a href="#" class="moreLink">{{moreText}}</a>
+            </span>
+        </script>
+        
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.1/masonry.pkgd.min.js"></script>
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/core/helpers.js"></script>
         <script src="js/core/core.js"></script>

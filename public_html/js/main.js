@@ -5,9 +5,9 @@ var FDPContainer = '.container';
 var FDP_JSON = 'js/data.json';
 
 //Mustache template
-templateID = '#template';
+templateID = '#item_template';
 
-//items per HTTP request
+//items per request
 itemsLen = 20;
 
 //loading first 20 random items in page
