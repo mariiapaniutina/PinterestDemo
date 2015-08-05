@@ -20,4 +20,4 @@ JSON structure =>
 ```
 
 ###Installation
-Download, unzip, run **index.html**
+Download, unzip, run with any webserver or just put on webpage (cause of CORS you cant load files from you disc)
