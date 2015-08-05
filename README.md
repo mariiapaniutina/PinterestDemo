@@ -1,5 +1,6 @@
 # PinterestDemo
 This is the demo for fashion discovery platformwith design based on http://pinterest.com
+Amount of items for every download is configurable.
 
 Was used: 
 * jquery.js 
